@@ -1,0 +1,15 @@
+'use client'
+
+export default function EditButton({result}) {
+   return (
+        <button type="button" onClick={()=>{
+            fetch('/api/post/edit',{
+                method: "POST",
+                body: JSON.stringify({
+                    title: result.title,
+                    content: result.content
+                })
+            })
+        }}>수정</button>
+    )
+}
