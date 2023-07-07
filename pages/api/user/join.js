@@ -1,7 +1,7 @@
 import { connectDB } from "@/util/database"
 
 export default async function handler(request, response) {
-    if(request.method == 'POST') {
+    if(request.method === 'POST') {
         console.log(request.body)
         if(request.body.userId === null || request.body.userPw === null) {
             return response.status(500).json('No ID or Password')

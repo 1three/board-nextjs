@@ -9,7 +9,7 @@ export default async function Edit(props) {
         <div className="p-20">
             <h3>글 수정</h3>
             <form action="/api/post/edit" method="POST">
-                <input type="hidden" name="_id" defaultValue={ result._id.toString() } />
+                <input type="hidden" name="_id" defaultValue={ result._id } />
                 <div>
                     <label htmlFor="title">제목
                     <input name="title" id="title" defaultValue={ result.title } ></input>

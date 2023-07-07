@@ -3,11 +3,11 @@ import { ObjectId } from "mongodb"
 
 export default async function handler(request, response) {
     console.log(request.body)
-    if(request.method == 'POST') {
+    if(request.method === 'POST') {
         // Exception id
         let change = { title: request.body.title, content: request.body.content }
 
-        if(request.body.title == null) {
+        if(request.body.title === null) {
             return response.status(500).json('No title')
         }
 

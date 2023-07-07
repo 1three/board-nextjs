@@ -1,8 +1,8 @@
 import { connectDB } from "@/util/database"
 
 export default async function handler(request, response) {
-    if(request.method == 'POST') {
-        if(request.body.title == null) {
+    if(request.method === 'POST') {
+        if(request.body.title === null) {
             return response.status(500).json('No title')
         }
 
