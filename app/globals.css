@@ -1,3 +1,6 @@
+body {
+  margin: 0;
+}
 .list-bg {
   background: rgb(249, 250, 255);
   padding: 10px;
@@ -16,7 +19,7 @@
 }
 .list-item p {
   color: grey;
-  margin : 5px 0px;
+  margin: 5px 0px;
 }
 .p-20 {
   padding: 20px;
@@ -31,25 +34,41 @@ button {
   padding: 10px 15px;
   background: lightgray;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
+  font-style: italic;
 }
 a {
   text-decoration: none;
   color: #323232;
 }
 .navbar {
-  background: white;
-  padding: 20px;
+  background: #ffffff;
+  padding: 15px;
 }
 .navbar a {
   margin-right: 10px;
   text-decoration: none;
-  color: black;
+  color: #323232;
+}
+.navbar i {
+  font-size: 15px;
+  text-decoration: underline;
+  color: #323232;
 }
 .logo {
   font-weight: bold;
-} 
+  font-size: 110%;
+}
 .list-item {
   opacity: 1;
   transition: all 1s;
+}
+.dark-mode .navbar {
+  background: #323232;
+}
+.dark-mode .navbar a {
+  color: #ffffff;
+}
+.dark-mode .navbar i {
+  color: #ffffff;
 }

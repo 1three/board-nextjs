@@ -2,8 +2,11 @@ import Link from "next/link";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import LoginBtn from "./LoginBtn";
+import LogoutBtn from "./LogoutBtn";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { cookies } from "next/dist/client/components/headers";
+import DarkMode from "./DarkMode";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,18 +17,31 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   let session = await getServerSession(authOptions);
-  console.log(session);
+  let result = cookies().get("mode");
+  console.log(result);
 
   return (
     <html lang="en">
-      <body>
+      <body
+        className={
+          result !== undefined && result.value === "dark" ? "dark-mode" : ""
+        }
+      >
         <div className="navbar">
           <Link href="/" className="logo">
             Three Shop
           </Link>
           <Link href="/list">List</Link>
           <Link href="/write">Write</Link>
-          {session === null ? <LoginBtn /> : <span>{session.user.name}님</span>}
+          <Link href="/user/join">Join</Link>
+          {session === null ? (
+            <LoginBtn />
+          ) : (
+            <span>
+              <i>{session.user.name}님</i> <LogoutBtn />
+            </span>
+          )}
+          <DarkMode />
         </div>
         {children}
       </body>
